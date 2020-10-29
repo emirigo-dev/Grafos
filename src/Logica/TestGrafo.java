@@ -76,5 +76,10 @@ public class TestGrafo {
 		Grafo g = setUp();
 		assertFalse(g.existeArista(1, 1));
 	}
+	@Test
+	public void tamanioTest() {
+		Grafo g = setUp();
+		assertEquals(3, g.tamanio());
+	}
 
 }

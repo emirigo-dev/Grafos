@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Grafo {
 	private ArrayList<Persona> P;
-	private int[][] A;
+	private Integer[][] A;
 	private int vertices;
 
 	// private Persona p = new Persona("Emiliano", 2, 1, 3, 2);
@@ -16,7 +16,7 @@ public class Grafo {
 	Grafo(int cantidadPersona) {
 		this.vertices = cantidadPersona;
 		P = new ArrayList<Persona>();
-		A = new int[vertices][vertices];
+		A = new Integer[vertices][vertices];
 	}
 
 	public void agregarPersonas(Persona persona) {
@@ -36,9 +36,6 @@ public class Grafo {
 				if (P.get(i) != P.get(j)) {
 					A[i][j] = P.get(i).similaridad(P.get(j));
 				}
-				else {
-					A[i][j] = lugarVacio;
-				}
 			}
 		}
 	}
@@ -50,15 +47,18 @@ public class Grafo {
 
 	public boolean existeArista(int persona1, int persona2) {
 		validarVertices(persona1, persona2);
-		if (A[persona1][persona2] >= 0) {
+		if(A[persona1][persona2] == null) {
+			return false;
+		}
+		if (A[persona1][persona2] >= 0 && A[persona1][persona2] != null) {
 			return true;
 		}
 		return false;
 	}
 	public void eliminarArista(int persona1, int persona2) {
 		validarVertices(persona1,persona2);
-		A[persona1][persona2] = -1;
-		A[persona2][persona1] = -1;
+		A[persona1][persona2] = null;
+		A[persona2][persona1] = null;
 	}
 
 	private void validarVertices(int persona1, int persona2) {
@@ -72,7 +72,9 @@ public class Grafo {
 		}
 
 	}
-
+	public int tamanio() {
+		return A.length;
+	}
 	public int cantidadVertices() {
 		return vertices;
 	}
