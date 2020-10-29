@@ -30,10 +30,14 @@ public class Grafo {
 		if (P.size() > vertices) {
 			throw new IllegalArgumentException("Puede ingresar las cantidad de personas que eligio antes ");
 		}
+		int lugarVacio = -1;
 		for (int i = 0; i < P.size(); i++) {
 			for (int j = 0; j < P.size(); j++) {
 				if (P.get(i) != P.get(j)) {
 					A[i][j] = P.get(i).similaridad(P.get(j));
+				}
+				else {
+					A[i][j] = lugarVacio;
 				}
 			}
 		}
@@ -46,15 +50,15 @@ public class Grafo {
 
 	public boolean existeArista(int persona1, int persona2) {
 		validarVertices(persona1, persona2);
-		if (A[persona1][persona2] > 0) {
+		if (A[persona1][persona2] >= 0) {
 			return true;
 		}
 		return false;
 	}
 	public void eliminarArista(int persona1, int persona2) {
 		validarVertices(persona1,persona2);
-		A[persona1][persona2] = 0;
-		A[persona2][persona1] = 0;
+		A[persona1][persona2] = -1;
+		A[persona2][persona1] = -1;
 	}
 
 	private void validarVertices(int persona1, int persona2) {
