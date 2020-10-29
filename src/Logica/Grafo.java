@@ -30,7 +30,6 @@ public class Grafo {
 		if (P.size() > vertices) {
 			throw new IllegalArgumentException("Puede ingresar las cantidad de personas que eligio antes ");
 		}
-		int lugarVacio = -1;
 		for (int i = 0; i < P.size(); i++) {
 			for (int j = 0; j < P.size(); j++) {
 				if (P.get(i) != P.get(j)) {
@@ -47,7 +46,7 @@ public class Grafo {
 
 	public boolean existeArista(int persona1, int persona2) {
 		validarVertices(persona1, persona2);
-		if(A[persona1][persona2] == null) {
+		if (A[persona1][persona2] == null) {
 			return false;
 		}
 		if (A[persona1][persona2] >= 0 && A[persona1][persona2] != null) {
@@ -55,10 +54,17 @@ public class Grafo {
 		}
 		return false;
 	}
+
 	public void eliminarArista(int persona1, int persona2) {
-		validarVertices(persona1,persona2);
+		validarVertices(persona1, persona2);
 		A[persona1][persona2] = null;
 		A[persona2][persona1] = null;
+	}
+
+	public void agregarArista(int persona1, int persona2) {
+		validarVertices(persona1, persona2);
+		A[persona1][persona2] = dameSimilaridad(persona1, persona2);
+		A[persona2][persona1] = dameSimilaridad(persona1, persona2);
 	}
 
 	private void validarVertices(int persona1, int persona2) {
@@ -72,9 +78,24 @@ public class Grafo {
 		}
 
 	}
+
+	public int damePesoTotal() {
+		int acumPeso = 0;
+		for (int i = 0; i < P.size(); i++) {
+			for (int j = 0; j < P.size(); j++) {
+				if (A[i][j] != null) {
+					acumPeso += A[i][j];
+				}
+			}
+		}
+		return acumPeso / 2;
+	}
+	
+
 	public int tamanio() {
 		return A.length;
 	}
+
 	public int cantidadVertices() {
 		return vertices;
 	}

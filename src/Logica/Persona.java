@@ -11,7 +11,7 @@ public class Persona {
 		if (nombre.length() < 3) {
 			throw new IllegalArgumentException("Tiene que ingresar un nombre de longitud minima de 3");
 		} else {
-			this.nombre = nombre;
+			this.setNombre(nombre);
 		}
 		if (musica < 0 || musica > 5) {
 			throw new IllegalArgumentException("El interes de la musica tiene que estar entre 0 y 5");
@@ -44,6 +44,14 @@ public class Persona {
 		int deporteSimilaridad = this.interesDeporte - persona.interesDeporte;
 		return Math.abs(deporteSimilaridad) + Math.abs(musicaSimilaridad) + Math.abs(cienciaSimilaridad)
 				+ Math.abs(matematicaSimilaridad);
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 }

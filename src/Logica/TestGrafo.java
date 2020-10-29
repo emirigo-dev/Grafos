@@ -32,7 +32,6 @@ public class TestGrafo {
 		g.empezarGrafo();
 
 	}
-
 	private Grafo setUp() {
 		Persona p1 = new Persona("Rigobello", 3, 1, 3, 2);
 		Persona p2 = new Persona("Pedro", 4, 3, 1, 4);
@@ -81,5 +80,20 @@ public class TestGrafo {
 		Grafo g = setUp();
 		assertEquals(3, g.tamanio());
 	}
-
+	@Test
+	public void agregarAristaTest() {
+		Grafo g = setUp();
+		g.agregarArista(0, 2);
+		g.eliminarArista(1, 2);
+		g.eliminarArista(0, 2);
+		g.agregarArista(1, 2);
+		assertTrue(g.existeArista(1, 2));
+	}
+	
+	@Test
+	public void sumarPeso() {
+		Grafo g = setUp();
+		assertEquals(20, g.damePesoTotal());
+	}
+	
 }
