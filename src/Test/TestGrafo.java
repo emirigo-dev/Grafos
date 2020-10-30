@@ -1,9 +1,12 @@
-package Logica;
+package Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import Logica.Grafo;
+import Logica.Persona;
 
 public class TestGrafo {
 

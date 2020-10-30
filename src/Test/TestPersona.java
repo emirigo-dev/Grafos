@@ -1,9 +1,11 @@
-package Logica;
+package Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Test;
+
+import Logica.Persona;
 
 public class TestPersona {
 

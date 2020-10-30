@@ -10,6 +10,7 @@ public class Prim {
 		agm = new Grafo(g.tamanio());
 		vertices = new ArrayList<Integer>();
 		vertices.add(origen);
+		agm.copiaDePersonas(g);
 	}
 
 	public static Grafo generadorArbolMinimo(Grafo g, int origen) {
@@ -18,8 +19,6 @@ public class Prim {
 		while (i < g.tamanio() - 1) {
 			ArrayList<Integer> aristasLlegan = dameAristaMinima(g);
 			if (aristasLlegan.get(0) != aristasLlegan.get(1)) {
-				System.out.println(aristasLlegan);
-				System.out.println(g.cantidadVertices());
 				agm.agregarArista(aristasLlegan.get(0), aristasLlegan.get(1));
 				vertices.add(aristasLlegan.get(1));
 			}
@@ -46,7 +45,6 @@ public class Prim {
 				}
 			}
 		}
-		System.out.println(arista);
 		return arista;
 
 	}

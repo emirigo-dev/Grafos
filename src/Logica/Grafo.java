@@ -1,19 +1,16 @@
 package Logica;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Grafo {
 	private ArrayList<Persona> P;
 	private Integer[][] A;
 	private int vertices;
 
-	// private Persona p = new Persona("Emiliano", 2, 1, 3, 2);
-//	private Persona p1 = new Persona("Rigobello", 3, 1, 3, 2);
-//	private Persona p2 = new Persona("Pedro", 4, 3, 1, 1);
-//	private Persona p3 = new Persona("Gonzalo", 1, 1, 3, 1);
-
-	Grafo(int cantidadPersona) {
+	public Grafo(int cantidadPersona) {
 		this.vertices = cantidadPersona;
 		P = new ArrayList<Persona>();
 		A = new Integer[vertices][vertices];
@@ -63,22 +60,22 @@ public class Grafo {
 
 	public void agregarArista(int persona1, int persona2) {
 		validarVertices(persona1, persona2);
-		A[persona1][persona2] = dameSimilaridad(persona1, persona2);
-		A[persona2][persona1] = dameSimilaridad(persona1, persona2);
+		int peso = dameSimilaridad(persona1, persona2);
+		A[persona1][persona2] = peso;
+		A[persona2][persona1] = peso;
 	}
 
 	private void validarVertices(int persona1, int persona2) {
-		if (persona1 < 0 || persona1 >= P.size()) {
-			throw new IllegalArgumentException(
-					"El vertice de la persona, tiene que ser mayor a 0 y menor a la cantidad de vertices");
-		}
-		if (persona2 < 0 || persona2 >= P.size()) {
-			throw new IllegalArgumentException(
-					"El vertice de la persona, tiene que ser mayor a 0 y menor a la cantidad de vertices");
-		}
-
+		verificarVertice (persona1);
+		verificarVertice (persona2);
 	}
 
+	private void verificarVertice (int i) {
+		if (i < 0 || i > P.size())
+			throw new IllegalArgumentException(
+					"El vertice de la persona, tiene que ser mayor a 0 y menor a la cantidad de vertices");
+	}
+	
 	public int damePesoTotal() {
 		int acumPeso = 0;
 		for (int i = 0; i < P.size(); i++) {
@@ -100,4 +97,30 @@ public class Grafo {
 		return vertices;
 	}
 
+	
+	public void copiaDePersonas (Grafo grafo) {
+		
+		//Aseguro que se limpie la lista de personas
+		P.clear();
+		
+		for (Persona person : grafo.P) {
+			this.P.add(person);
+		}
+		
+	}
+
+	public Set<Integer> vecinos(int i){
+		verificarVertice(i);
+		
+		Set<Integer> ret = new HashSet<Integer>();
+		for(int j = 0; j < this.tamanio(); ++j) if( i != j )
+		{
+			if( this.existeArista(i,j) )
+				ret.add(j);
+		}
+		
+		return ret;		
+	}
+
+	
 }
