@@ -24,12 +24,11 @@ public class TestPrim {
 	}
 	
 	@Test
-	public void test() {
-		
+	public void eligeCaminoMinimotest() {	
 		Grafo g = setUp();
-		Prim.generadorArbolMinimo(g, 0);
-		assertEquals(12, g.damePesoTotal());
+		Grafo agm = Prim.generadorArbolMinimo(g, 0);
+		assertEquals(12, agm.damePesoTotal());
 	}
-		
-
+	
+	
 }

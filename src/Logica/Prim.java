@@ -10,7 +10,7 @@ public class Prim {
 		agm = new Grafo(g.tamanio());
 		vertices = new ArrayList<Integer>();
 		vertices.add(origen);
-		agm.copiaDePersonas(g);
+		agm.grupoPersona = g.grupoPersona;
 	}
 
 	public static Grafo generadorArbolMinimo(Grafo g, int origen) {

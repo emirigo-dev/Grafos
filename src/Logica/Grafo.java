@@ -6,31 +6,31 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Grafo {
-	private ArrayList<Persona> P;
+	protected ArrayList<Persona> grupoPersona;
 	private Integer[][] A;
 	private int vertices;
 
 	public Grafo(int cantidadPersona) {
 		this.vertices = cantidadPersona;
-		P = new ArrayList<Persona>();
+		grupoPersona = new ArrayList<Persona>();
 		A = new Integer[vertices][vertices];
 	}
 
 	public void agregarPersonas(Persona persona) {
-		P.add(persona);
+		grupoPersona.add(persona);
 	}
 
 	public void empezarGrafo() {
-		if (P.size() < 2) {
+		if (grupoPersona.size() < 2) {
 			throw new IllegalArgumentException("Por lo menos tiene que haber 3 personas");
 		}
-		if (P.size() > vertices) {
+		if (grupoPersona.size() > vertices) {
 			throw new IllegalArgumentException("Puede ingresar las cantidad de personas que eligio antes ");
 		}
-		for (int i = 0; i < P.size(); i++) {
-			for (int j = 0; j < P.size(); j++) {
-				if (P.get(i) != P.get(j)) {
-					A[i][j] = P.get(i).similaridad(P.get(j));
+		for (int i = 0; i < grupoPersona.size(); i++) {
+			for (int j = 0; j < grupoPersona.size(); j++) {
+				if (grupoPersona.get(i) != grupoPersona.get(j)) {
+					A[i][j] = grupoPersona.get(i).similaridad(grupoPersona.get(j));
 				}
 			}
 		}
@@ -38,7 +38,7 @@ public class Grafo {
 
 	public int dameSimilaridad(int persona1, int persona2) {
 		validarVertices(persona1, persona2);
-		return P.get(persona1).similaridad(P.get(persona2));
+		return grupoPersona.get(persona1).similaridad(grupoPersona.get(persona2));
 	}
 
 	public boolean existeArista(int persona1, int persona2) {
@@ -71,15 +71,15 @@ public class Grafo {
 	}
 
 	private void verificarVertice (int i) {
-		if (i < 0 || i > P.size())
+		if (i < 0 || i > grupoPersona.size())
 			throw new IllegalArgumentException(
 					"El vertice de la persona, tiene que ser mayor a 0 y menor a la cantidad de vertices");
 	}
 	
 	public int damePesoTotal() {
 		int acumPeso = 0;
-		for (int i = 0; i < P.size(); i++) {
-			for (int j = 0; j < P.size(); j++) {
+		for (int i = 0; i < grupoPersona.size(); i++) {
+			for (int j = 0; j < grupoPersona.size(); j++) {
 				if (A[i][j] != null) {
 					acumPeso += A[i][j];
 				}
@@ -101,10 +101,10 @@ public class Grafo {
 	public void copiaDePersonas (Grafo grafo) {
 		
 		//Aseguro que se limpie la lista de personas
-		P.clear();
+		grupoPersona.clear();
 		
-		for (Persona person : grafo.P) {
-			this.P.add(person);
+		for (Persona person : grafo.grupoPersona) {
+			this.grupoPersona.add(person);
 		}
 		
 	}
