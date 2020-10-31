@@ -88,6 +88,10 @@ public class Grafo {
 		return acumPeso / 2;
 	}
 	
+	public int pesoArista (int i, int j) {
+		return this.A[i][j];
+	}
+	
 
 	public int tamanio() {
 		return A.length;
@@ -120,6 +124,10 @@ public class Grafo {
 		}
 		
 		return ret;		
+	}
+
+	public Integer[][] getA() {
+		return A;
 	}
 
 	
