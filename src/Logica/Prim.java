@@ -36,8 +36,7 @@ public class Prim {
 					if (g.dameSimilaridad(vertices.get(i), j) < peso || peso == -1) {
 						peso = g.dameSimilaridad(vertices.get(i), j);
 						if (arista.size() >= 1) {
-							arista.remove(0);
-							arista.remove(0);
+							arista.clear();
 						}
 						arista.add(i);
 						arista.add(j);
