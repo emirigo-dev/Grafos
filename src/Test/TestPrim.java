@@ -31,9 +31,33 @@ public class TestPrim {
 	}
 	
 	@Test
-	public void eligeCaminoMinimoTest() {	
+	public void eligeCaminoMinimoOrigenInicioTest() {	
 		Grafo g = setUp();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
+		System.out.println(Prim.imprimirvertices());
+		System.out.println(" ");
+		for (int i = 0; i < agm.getA().length; i++ ) {
+			System.out.println(Arrays.toString(g.getA()[i]));			
+		}
+		assertEquals(14, agm.damePesoTotal());
+	}
+	
+	@Test
+	public void eligeCaminoMinimoOrigenFinalTest() {	
+		Grafo g = setUp();
+		Grafo agm = Prim.generadorArbolMinimo(g, 4);
+		System.out.println(Prim.imprimirvertices());
+		System.out.println(" ");
+		for (int i = 0; i < agm.getA().length; i++ ) {
+			System.out.println(Arrays.toString(g.getA()[i]));			
+		}
+		assertEquals(14, agm.damePesoTotal());
+	}
+	
+	@Test
+	public void eligeCaminoMinimoOrigenIntermedioTest() {	
+		Grafo g = setUp();
+		Grafo agm = Prim.generadorArbolMinimo(g, 2);
 		System.out.println(Prim.imprimirvertices());
 		System.out.println(" ");
 		for (int i = 0; i < agm.getA().length; i++ ) {
