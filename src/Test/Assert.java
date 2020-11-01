@@ -16,4 +16,12 @@ public class Assert {
 			assertTrue(obtenido[i] == esperado[i]);
 		}
 	}
+	
+	public static void igualesMatriz (Integer[][] esperado, Integer[][] obtenido, int vertices) {
+		for (int i = 0; i < vertices; i++) {
+			for (int j = 0; j < vertices; j++) {
+				assertTrue(obtenido[i][j].equals(esperado[i][j]));
+			}
+		}
+	}
 }
