@@ -34,8 +34,11 @@ public class TestPrim {
 	public void eligeCaminoMinimoOrigenInicioTest() {	
 		Grafo g = setUp();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
-		System.out.println(Prim.imprimirvertices());
-		System.out.println(" ");
+//		System.out.println(Prim.imprimirvertices());
+//		System.out.println(" ");
+//		for (int i = 0; i < agm.cantidadVertices(); i++) {
+//			System.out.println(Arrays.toString(agm.getA()[i]));
+//		}
 		assertEquals(14, agm.damePesoTotal());
 	}
 	
@@ -43,8 +46,6 @@ public class TestPrim {
 	public void eligeCaminoMinimoOrigenFinalTest() {	
 		Grafo g = setUp();
 		Grafo agm = Prim.generadorArbolMinimo(g, 4);
-		System.out.println(Prim.imprimirvertices());
-		System.out.println(" ");
 		assertEquals(14, agm.damePesoTotal());
 	}
 	
@@ -52,17 +53,16 @@ public class TestPrim {
 	public void eligeCaminoMinimoOrigenIntermedioTest() {	
 		Grafo g = setUp();
 		Grafo agm = Prim.generadorArbolMinimo(g, 2);
-		System.out.println(Prim.imprimirvertices());
 		assertEquals(14, agm.damePesoTotal());
 	}
 	
 	
-//	@Test
-//	public void esArbol () {
-//		Grafo g = setUp();
-//		Grafo agm = Prim.generadorArbolMinimo(g, 0);
-//		assertTrue(BFS.esArbol(agm));
-//	}
+	@Test
+	public void esArbol () {
+		Grafo g = setUp();
+		Grafo agm = Prim.generadorArbolMinimo(g, 0);
+		assertTrue(BFS.esArbol(agm));
+	}
 	
 	
 }

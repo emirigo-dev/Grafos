@@ -10,10 +10,10 @@ import static org.junit.Assert.assertTrue;
 import java.util.Set;
 
 public class Assert {
-	public static void iguales(int[] esperado, int[] obtenido) {
-		assertEquals(esperado.length, obtenido.length);
+	public static void iguales(int[] esperado, Set<Integer> obtenido) {
+		assertEquals(esperado.length, obtenido.size());
 		for (int i = 0; i < esperado.length; i++) {
-			assertTrue(obtenido[i] == esperado[i]);
+			assertTrue(obtenido.contains(esperado[i]));
 		}
 	}
 	

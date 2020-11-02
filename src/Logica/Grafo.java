@@ -66,16 +66,16 @@ public class Grafo {
 	}
 
 	private void validarVertices(int persona1, int persona2) {
-		verificarVertice (persona1);
-		verificarVertice (persona2);
+		verificarVertice(persona1);
+		verificarVertice(persona2);
 	}
 
-	private void verificarVertice (int i) {
+	private void verificarVertice(int i) {
 		if (i < 0 || i > grupoPersona.size())
 			throw new IllegalArgumentException(
 					"El vertice de la persona, tiene que ser mayor a 0 y menor a la cantidad de vertices");
 	}
-	
+
 	public int damePesoTotal() {
 		int acumPeso = 0;
 		for (int i = 0; i < grupoPersona.size(); i++) {
@@ -87,11 +87,10 @@ public class Grafo {
 		}
 		return acumPeso / 2;
 	}
-	
-	public int pesoArista (int i, int j) {
+
+	public int pesoArista(int i, int j) {
 		return this.A[i][j];
 	}
-	
 
 	public int tamanio() {
 		return A.length;
@@ -101,34 +100,36 @@ public class Grafo {
 		return vertices;
 	}
 
-	
-	public void copiaDePersonas (Grafo grafo) {
-		
-		//Aseguro que se limpie la lista de personas
-		grupoPersona.clear();
-		
-		for (Persona person : grafo.grupoPersona) {
-			this.grupoPersona.add(person);
-		}
-		
-	}
-
-	public Set<Integer> vecinos(int i){
+	public Set<Integer> vecinos(int i) {
 		verificarVertice(i);
-		
+
 		Set<Integer> ret = new HashSet<Integer>();
-		for(int j = 0; j < this.tamanio(); ++j) if( i != j )
-		{
-			if( this.existeArista(i,j) )
-				ret.add(j);
-		}
-		
-		return ret;		
+		for (int j = 0; j < this.tamanio(); ++j)
+			if (i != j) {
+				if (this.existeArista(i, j))
+					ret.add(j);
+			}
+
+		return ret;
 	}
 
 	public Integer[][] getA() {
 		return A;
 	}
 
-	
+	public void eliminarAristaMasPesada() {
+		int pesoMaximo = 0;
+		int[] vertice = new int[2];
+		for (int i = 0; i < grupoPersona.size(); i++) {
+			for (int j = 0; j < grupoPersona.size(); j++) {
+				if (!(A[i][j] == null) && pesoMaximo < A[i][j]) {
+					pesoMaximo = A[i][j];
+					vertice[0] = i;
+					vertice[1] = j;
+				}
+			}
+		}
+		eliminarArista(vertice[0], vertice[1]);
+	}
+
 }
