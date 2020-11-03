@@ -20,6 +20,28 @@ public class BFS {
 	}
 
 
+	
+	public static Set<Integer> recorrerGrafoCompleto(Grafo g, int origen) {
+		Set<Integer> ret = new HashSet<Integer>();
+		while (origen < g.cantidadVertices()) {
+			inicializar(g, origen);
+			while (L.size() > 0) {
+				int i = L.get(0);
+				marcados[i] = true;
+				agregarVecinosPendientes(g, i);
+				ret.add(i);
+				L.remove(0);
+				origen++;
+			}
+
+		}
+		return ret;
+	}
+
+	
+	
+	
+	
 	public static Set<Integer> alcanzables(Grafo g, int origen) {
 
 		Set<Integer> ret = new HashSet<Integer>();
