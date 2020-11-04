@@ -30,7 +30,8 @@ public class TestBFS {
 	public void conextoTest() {
 		Grafo g = setUp();
 		
-		g.agregarArista(3, 4);
+		int peso = g.getGrupoPersona().get(3).similaridad(g.getGrupoPersona().get(4));
+		g.agregarArista(3, 4, peso);
 		assertTrue(BFS.esConexo(g));
 
 	}

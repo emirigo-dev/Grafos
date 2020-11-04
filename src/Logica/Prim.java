@@ -107,7 +107,8 @@ public class Prim {
 		while (i < g.tamanio() - 1) {
 			int []aristasLlegan = dameAristaMinima(g);
 			if (aristasLlegan[0] != aristasLlegan[1]) {
-				agm.agregarArista(aristasLlegan[0], aristasLlegan[1]);
+				int peso = g.getGrupoPersona().get(aristasLlegan[0]).similaridad(g.getGrupoPersona().get(aristasLlegan[0]));
+				agm.agregarArista(aristasLlegan[0], aristasLlegan[1], peso);
 				System.out.print(aristasLlegan[0]+","+aristasLlegan[1] + " --- ");
 				System.out.println(g.pesoArista(aristasLlegan[0], aristasLlegan[1]));
 				vertices.add(aristasLlegan[1]);

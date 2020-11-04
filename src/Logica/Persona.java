@@ -54,4 +54,10 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
+	@Override
+	public String toString () {
+		return nombre + ": Musica: " + interesMusica + "  Matemática: " + interesMatematica + "  Deporte: " + 
+				interesDeporte + "  Ciencia: " + interesCiencia;
+	}
+	
 }

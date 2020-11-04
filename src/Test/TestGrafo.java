@@ -2,6 +2,7 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import Logica.Grafo;
@@ -84,10 +85,13 @@ public class TestGrafo {
 	@Test
 	public void agregarAristaTest() {
 		Grafo g = setUp();
-		g.agregarArista(0, 2);
+		
+		int peso = g.getGrupoPersona().get(0).similaridad(g.getGrupoPersona().get(2));
+		g.agregarArista(0, 2, peso);
 		g.eliminarArista(1, 2);
 		g.eliminarArista(0, 2);
-		g.agregarArista(1, 2);
+		peso = g.getGrupoPersona().get(1).similaridad(g.getGrupoPersona().get(2));
+		g.agregarArista(1, 2, peso);
 		assertTrue(g.existeArista(1, 2));
 	}
 
@@ -113,8 +117,8 @@ public class TestGrafo {
 		g.empezarGrafo();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
 		agm.eliminarAristaMasPesada();
-		assertFalse(agm.existeArista(0, 1));
-		assertFalse(agm.existeArista(1, 0));
+		assertTrue(agm.existeArista(0, 1));
+		assertTrue(agm.existeArista(1, 0));
 	}
 
 }

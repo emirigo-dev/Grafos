@@ -30,7 +30,9 @@ public class Grafo {
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
 				if (grupoPersona.get(i) != grupoPersona.get(j)) {
-					A[i][j] = grupoPersona.get(i).similaridad(grupoPersona.get(j));
+					//A[i][j] = grupoPersona.get(i).similaridad(grupoPersona.get(j));
+					int peso = grupoPersona.get(i).similaridad(grupoPersona.get(j));
+					agregarArista(i,j,peso);
 				}
 			}
 		}
@@ -58,9 +60,8 @@ public class Grafo {
 		A[persona2][persona1] = null;
 	}
 
-	public void agregarArista(int persona1, int persona2) {
+	public void agregarArista(int persona1, int persona2, int peso) {
 		validarVertices(persona1, persona2);
-		int peso = dameSimilaridad(persona1, persona2);
 		A[persona1][persona2] = peso;
 		A[persona2][persona1] = peso;
 	}
@@ -130,6 +131,10 @@ public class Grafo {
 			}
 		}
 		eliminarArista(vertice[0], vertice[1]);
+	}
+	
+	public ArrayList<Persona> getGrupoPersona (){
+		return grupoPersona;
 	}
 
 }
