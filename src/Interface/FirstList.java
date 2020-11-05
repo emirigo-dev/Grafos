@@ -51,13 +51,13 @@ public class FirstList extends JFrame {
 	 */
 	public FirstList() {
 		
-		for (int i = 0; i < 10 ; i++) {
+		for (int i = 0; i < 100 ; i++) {
 			Persona persona = new Persona ("Agustín Heredia", 1 , 1 ,1 ,1);		
 			list.add(persona);
 		}
 		persons.addAll(list);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -72,14 +72,14 @@ public class FirstList extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(101, 208, 209, 42);
+		btnNewButton.setBounds(238, 388, 209, 42);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(37, 23, 358, 159);
+		scrollPane.setBounds(37, 23, 638, 312);
 		contentPane.add(scrollPane);
 		
-		JList list = new JList(persons);
-		scrollPane.setViewportView(list);
+		JList list_1 = new JList(persons);
+		scrollPane.setViewportView(list_1);
 	}
 }

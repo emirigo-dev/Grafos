@@ -36,7 +36,7 @@ public class Start extends JFrame {
 	 */
 	public Start() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -52,7 +52,7 @@ public class Start extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Segoe UI Historic", Font.BOLD, 16));
-		btnNewButton.setBounds(98, 203, 226, 47);
+		btnNewButton.setBounds(214, 348, 226, 47);
 		contentPane.add(btnNewButton);
 	}
 }

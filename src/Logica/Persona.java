@@ -56,7 +56,7 @@ public class Persona {
 
 	@Override
 	public String toString () {
-		return nombre + ": Musica: " + interesMusica + "  Matemática: " + interesMatematica + "  Deporte: " + 
+		return nombre + "       Musica: " + interesMusica + "  Matemática: " + interesMatematica + "  Deporte: " + 
 				interesDeporte + "  Ciencia: " + interesCiencia;
 	}
 	
