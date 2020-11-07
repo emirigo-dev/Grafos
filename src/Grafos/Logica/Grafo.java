@@ -1,4 +1,4 @@
-package Logica;
+package Grafos.Logica;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -30,7 +30,6 @@ public class Grafo {
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
 				if (grupoPersona.get(i) != grupoPersona.get(j)) {
-					//A[i][j] = grupoPersona.get(i).similaridad(grupoPersona.get(j));
 					int peso = grupoPersona.get(i).similaridad(grupoPersona.get(j));
 					agregarArista(i,j,peso);
 				}
@@ -97,10 +96,6 @@ public class Grafo {
 		return A.length;
 	}
 
-	public int cantidadVertices() {
-		return vertices;
-	}
-
 	public Set<Integer> vecinos(int i) {
 		verificarVertice(i);
 
@@ -119,22 +114,27 @@ public class Grafo {
 	}
 
 	public void eliminarAristaMasPesada() {
-		int pesoMaximo = 0;
+		int pesoMaximo = -1;
 		int[] vertice = new int[2];
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
-				if (!(A[i][j] == null) && pesoMaximo < A[i][j]) {
+				if (A[i][j] != null && i!=j && pesoMaximo < A[i][j]) {
 					pesoMaximo = A[i][j];
 					vertice[0] = i;
 					vertice[1] = j;
 				}
 			}
 		}
+		System.out.println("Más pesada ( " + vertice [0] + " -- " + vertice [1] + " )");
 		eliminarArista(vertice[0], vertice[1]);
 	}
 	
 	public ArrayList<Persona> getGrupoPersona (){
 		return grupoPersona;
+	}
+	
+	public int getVertices () {
+		return this.vertices;
 	}
 
 }

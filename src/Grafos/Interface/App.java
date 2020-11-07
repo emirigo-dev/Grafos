@@ -1,4 +1,4 @@
-package Interface;
+package Grafos.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

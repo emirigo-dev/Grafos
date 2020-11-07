@@ -1,4 +1,4 @@
-package Interface;
+package Grafos.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,22 +14,6 @@ import java.awt.event.MouseEvent;
 public class Start extends JFrame {
 
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Start frame = new Start();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

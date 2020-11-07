@@ -1,11 +1,11 @@
-package Test;
+package Grafos.Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Test;
 
-import Logica.Persona;
+import Grafos.Logica.Persona;
 
 public class TestPersona {
 

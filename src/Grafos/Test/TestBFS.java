@@ -1,4 +1,4 @@
-package Test;
+package Grafos.Test;
 
 import static org.junit.Assert.*;
 
@@ -6,9 +6,9 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import Logica.BFS;
-import Logica.Grafo;
-import Logica.Persona;
+import Grafos.Logica.BFS;
+import Grafos.Logica.Grafo;
+import Grafos.Logica.Persona;
 
 public class TestBFS {
 

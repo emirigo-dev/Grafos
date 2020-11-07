@@ -1,13 +1,13 @@
-package Test;
+package Grafos.Test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import Logica.Grafo;
-import Logica.Persona;
-import Logica.Prim;
+import Grafos.Logica.Grafo;
+import Grafos.Logica.Persona;
+import Grafos.Logica.Prim;
 
 public class TestGrafo {
 

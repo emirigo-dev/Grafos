@@ -1,4 +1,4 @@
-package Interface;
+package Grafos.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Logica.Persona;
+import Grafos.DAO.PersonaDao;
+import Grafos.Logica.Grafo;
+import Grafos.Logica.Persona;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -28,7 +30,8 @@ public class FirstList extends JFrame {
 
 	private JPanel contentPane;
 	private DefaultListModel persons = new DefaultListModel ();
-	private ArrayList<Persona> list = new ArrayList<Persona>();
+	private ArrayList <Persona> personas;
+	public static Grafo grafo;
 
 	/**
 	 * Launch the application.
@@ -51,11 +54,14 @@ public class FirstList extends JFrame {
 	 */
 	public FirstList() {
 		
-		for (int i = 0; i < 100 ; i++) {
-			Persona persona = new Persona ("Agustín Heredia", 1 , 1 ,1 ,1);		
-			list.add(persona);
+		personas = PersonaDao.personsFromCsv("C:/users/Usuario/Desktop/Personas.csv");
+		grafo = new Grafo (personas.size());
+		for (Persona persona : personas) {
+			grafo.agregarPersonas(persona);
+			persons.add(persons.getSize(), persona);
 		}
-		persons.addAll(list);
+		grafo.empezarGrafo();
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
@@ -67,7 +73,7 @@ public class FirstList extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				Groups groups = new Groups();
+				Groups groups = new Groups(grafo);
 				groups.setVisible(true);
 				dispose();
 			}

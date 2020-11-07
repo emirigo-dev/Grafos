@@ -1,4 +1,4 @@
-package Test;
+package Grafos.Test;
 
 import static org.junit.Assert.*;
 
@@ -7,10 +7,10 @@ import java.util.Arrays;
 import org.junit.After;
 import org.junit.Test;
 
-import Logica.BFS;
-import Logica.Grafo;
-import Logica.Persona;
-import Logica.Prim;
+import Grafos.Logica.BFS;
+import Grafos.Logica.Grafo;
+import Grafos.Logica.Persona;
+import Grafos.Logica.Prim;
 
 public class TestPrim {
 

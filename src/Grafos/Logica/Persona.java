@@ -1,4 +1,4 @@
-package Logica;
+package Grafos.Logica;
 
 public class Persona {
 	private String nombre;

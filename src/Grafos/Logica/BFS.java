@@ -1,4 +1,4 @@
-package Logica;
+package Grafos.Logica;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,17 +13,17 @@ public class BFS {
 		if (g == null) {
 			throw new IllegalArgumentException();
 		}
-		if (g.cantidadVertices() == 0) {
+		if (g.getVertices() == 0) {
 			return true;
 		}
-		return alcanzables(g, 0).size() == g.cantidadVertices();
+		return alcanzables(g, 0).size() == g.getVertices();
 	}
 
 
 	
 	public static Set<Integer> recorrerGrafoCompleto(Grafo g, int origen) {
 		Set<Integer> ret = new HashSet<Integer>();
-		while (origen < g.cantidadVertices()) {
+		while (origen < g.getVertices()) {
 			inicializar(g, origen);
 			while (L.size() > 0) {
 				int i = L.get(0);
@@ -38,9 +38,6 @@ public class BFS {
 		return ret;
 	}
 
-	
-	
-	
 	
 	public static Set<Integer> alcanzables(Grafo g, int origen) {
 
@@ -67,31 +64,10 @@ public class BFS {
 	private static void inicializar(Grafo g, int origen) {
 		L = new ArrayList<Integer>();
 		L.add(origen);
-		marcados = new boolean[g.cantidadVertices()];
+		marcados = new boolean[g.getVertices()];
 	}
-	
-//	public static Set<Integer> alcanzablesDos (Grafo grafo, int origen){
-//		
-//		Set <Integer> marcados = new HashSet <Integer>();
-//		ArrayList <Integer> pendientes = new ArrayList <Integer>();
-//		pendientes.add(origen);
-//		
-//		while (pendientes.size() != 0) {
-//			int actual = pendientes.get(0);
-//			marcados.add(actual);
-//			pendientes.remove(0);
-//			
-//			for (Integer v : grafo.vecinos(actual)) {
-//				if (marcados.contains(v) == false)
-//						pendientes.add(v);
-//			}
-//		}
-//		
-//		return marcados;
-//	}
 
 	public static boolean esArbol(Grafo grafo) {
-		// TODO Auto-generated method stub
 		Set <Integer> marcados = new HashSet <Integer>();
 		ArrayList <Integer> pendientes = new ArrayList <Integer>();
 		pendientes.add(0);
@@ -109,4 +85,25 @@ public class BFS {
 		}
 		return true;
 	}
+	
+	public static ArrayList<Set <Integer>> dividirGrafo (Grafo grafo) {
+        ArrayList <Set <Integer>> grafos = new ArrayList <Set <Integer>>();
+        
+        if (BFS.esConexo(grafo)){
+            grafos.add(BFS.alcanzables(grafo, 0));
+        }
+        else {
+            ArrayList <Integer> pendientes = new ArrayList<Integer>();
+            
+            for (int i = 0; i < grafo.getVertices(); i++){
+                pendientes.add(i);
+            }
+            while (pendientes.size() > 0) {
+                grafos.add(BFS.alcanzables(grafo, pendientes.get(0)));
+                pendientes.removeAll(BFS.alcanzables(grafo, pendientes.get(0)));
+                
+            }
+        }
+        return grafos;
+    }
 }

@@ -1,4 +1,4 @@
-package Test;
+package Grafos.Test;
 
 import static org.junit.Assert.*;
 
