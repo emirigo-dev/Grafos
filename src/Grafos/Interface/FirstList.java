@@ -60,7 +60,7 @@ public class FirstList extends JFrame {
 			grafo.agregarPersonas(persona);
 			persons.add(persons.getSize(), persona);
 		}
-		grafo.empezarGrafo();
+		grafo.grafoCompleto();
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);

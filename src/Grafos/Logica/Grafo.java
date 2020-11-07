@@ -2,8 +2,10 @@ package Grafos.Logica;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
+
 
 public class Grafo {
 	protected ArrayList<Persona> grupoPersona;
@@ -20,7 +22,7 @@ public class Grafo {
 		grupoPersona.add(persona);
 	}
 
-	public void empezarGrafo() {
+	public void grafoCompleto() {
 		if (grupoPersona.size() < 2) {
 			throw new IllegalArgumentException("Por lo menos tiene que haber 3 personas");
 		}
@@ -118,25 +120,45 @@ public class Grafo {
 	}
 
 	public void eliminarAristaMasPesada() {
-		int vecinos = -1;
+		ArrayList <Tupla <Integer, Integer>> list = new ArrayList<Tupla<Integer, Integer>>();
+		Tupla t;
 		int pesoMaximo = -1;
-		int[] vertice = new int[2];
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
-				if (A[i][j] != null && 
-					i!=j && 
-					pesoMaximo < A[i][j] &&
-					cantidadDeVecinos(i) > vecinos &&
-					cantidadDeVecinos (i) > vecinos) {
-					pesoMaximo = A[i][j];
-					vertice[0] = i;
-					vertice[1] = j;
-					vecinos = cantidadDeVecinos(i);
+				if (A[i][j] != null && i!=j && pesoMaximo <= A[i][j]) {
+					if (A[i][j] > pesoMaximo) {
+						list.clear();
+						t = new Tupla (i,j);
+						list.add(t);
+						pesoMaximo = A[i][j];
+					}
+					else {
+						t = new Tupla (i,j);
+						list.add(t);
+					}
 				}
 			}
 		}
-		System.out.println("Más pesada ( " + vertice [0] + " -- " + vertice [1] + " )");
-		eliminarArista(vertice[0], vertice[1]);
+		
+		Random rnd = new Random();
+		int i = rnd.nextInt(list.size());
+		t = list.get(i);
+		System.out.println("Más pesada ( " + t.getX() + " -- " + t.getY() + " )");
+		eliminarArista((int)t.getX(), (int)t.getY());
+	}
+	
+	public void eliminarAristaAleatoria () {
+		Random rnd = new Random();
+		int i = rnd.nextInt(vertices);
+		int j = rnd.nextInt(vertices);
+		
+		while (!existeArista(i,j)) {
+			i = rnd.nextInt(vertices);
+			j = rnd.nextInt(vertices);
+		}
+		
+		System.out.println("( " + i + " -- " + j + " )");
+		eliminarArista (i,j);
 	}
 	
 	public ArrayList<Persona> getGrupoPersona (){

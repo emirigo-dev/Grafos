@@ -14,7 +14,7 @@ public class TestGrafo {
 	@Test(expected = IllegalArgumentException.class)
 	public void empezarGrafoVacioTest() {
 		Grafo g = new Grafo(3);
-		g.empezarGrafo();
+		g.grafoCompleto();
 
 	}
 
@@ -29,7 +29,7 @@ public class TestGrafo {
 		g.agregarPersonas(p2);
 		g.agregarPersonas(p3);
 		g.agregarPersonas(p4);
-		g.empezarGrafo();
+		g.grafoCompleto();
 
 	}
 
@@ -41,7 +41,7 @@ public class TestGrafo {
 		g.agregarPersonas(p1);
 		g.agregarPersonas(p2);
 		g.agregarPersonas(p3);
-		g.empezarGrafo();
+		g.grafoCompleto();
 		return g;
 	}
 
@@ -114,7 +114,7 @@ public class TestGrafo {
 		g.agregarPersonas(p3);
 		g.agregarPersonas(p4);
 		g.agregarPersonas(p5);
-		g.empezarGrafo();
+		g.grafoCompleto();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
 		agm.eliminarAristaMasPesada();
 		assertTrue(agm.existeArista(0, 1));

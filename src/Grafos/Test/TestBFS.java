@@ -55,7 +55,7 @@ public class TestBFS {
 		g.agregarPersonas(p3);
 		g.agregarPersonas(p4);
 		g.agregarPersonas(p5);
-		g.empezarGrafo();
+		g.grafoCompleto();
 		return g;
 	}
 	
