@@ -54,7 +54,7 @@ public class FirstList extends JFrame {
 	 */
 	public FirstList() {
 		
-		personas = PersonaDao.personsFromCsv("C:/users/Usuario/Desktop/Personas.csv");
+		personas = PersonaDao.personsFromCsv();
 		grafo = new Grafo (personas.size());
 		for (Persona persona : personas) {
 			grafo.agregarPersonas(persona);

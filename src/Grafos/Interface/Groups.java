@@ -45,13 +45,14 @@ public class Groups extends JFrame {
 	 */
 	public Groups(Grafo grafo) {
 		
+		
 		Grafo agm = Prim.generadorArbolMinimo (grafo, 0);
 		agm.eliminarAristaMasPesada();
 		Persona persona;
 		ArrayList <Set<Integer>> listas = BFS.dividirGrafo(agm);
 		for (Integer i : listas.get(0)) {
-		persona = grafo.getGrupoPersona().get(i);
-		list1.add(list1.getSize(), persona);
+			persona = grafo.getGrupoPersona().get(i);
+			list1.add(list1.getSize(), persona);
 		}
 		for (Integer i : listas.get(1)) {
 			persona = grafo.getGrupoPersona().get(i);

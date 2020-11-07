@@ -9,9 +9,10 @@ import Grafos.Logica.*;
 
 public class PersonaDao {
 
-	public static ArrayList <Persona> personsFromCsv (String PATH) {
+	public static ArrayList <Persona> personsFromCsv () {
 		ArrayList <Persona> persons = new ArrayList <Persona>();
 		BufferedReader br = null;
+		String PATH = System.getProperty("user.dir") + "/resourses/personas.csv";
 		
 		try {
 			br = new BufferedReader (new FileReader (PATH));

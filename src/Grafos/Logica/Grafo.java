@@ -108,20 +108,30 @@ public class Grafo {
 
 		return ret;
 	}
+	
+	public int cantidadDeVecinos (int i) {
+		return vecinos(i).size();
+	}
 
 	public Integer[][] getA() {
 		return A;
 	}
 
 	public void eliminarAristaMasPesada() {
+		int vecinos = -1;
 		int pesoMaximo = -1;
 		int[] vertice = new int[2];
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
-				if (A[i][j] != null && i!=j && pesoMaximo < A[i][j]) {
+				if (A[i][j] != null && 
+					i!=j && 
+					pesoMaximo < A[i][j] &&
+					cantidadDeVecinos(i) > vecinos &&
+					cantidadDeVecinos (i) > vecinos) {
 					pesoMaximo = A[i][j];
 					vertice[0] = i;
 					vertice[1] = j;
+					vecinos = cantidadDeVecinos(i);
 				}
 			}
 		}
