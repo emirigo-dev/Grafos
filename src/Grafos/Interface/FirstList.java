@@ -42,7 +42,7 @@ public class FirstList extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FirstList frame = new FirstList();
+					FirstList frame = new FirstList(SelectPeople.count);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,10 +54,10 @@ public class FirstList extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FirstList() {
+	public FirstList(Integer count) {
 		setTitle("Clustering Humano");
 		
-		personas = PersonaDao.personsFromCsv();
+		personas = PersonaDao.personsFromCsv(count);
 		grafo = new Grafo (personas.size());
 		for (Persona persona : personas) {
 			grafo.agregarPersonas(persona);

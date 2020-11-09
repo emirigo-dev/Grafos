@@ -24,15 +24,14 @@ public class PersonaDao {
 	 * 
 	 * @return Devuelve un {@code ArrayList<Persona>} con los objetos {@code Persona} 
 	 */
-	public static ArrayList <Persona> personsFromCsv () {
+	public static ArrayList <Persona> personsFromCsv (Integer quantity) {
 		ArrayList <Persona> persons = new ArrayList <Persona>();
 		BufferedReader br = null;
 		String PATH = System.getProperty("user.dir") + "/resourses/personas.csv";
-		
 		try {
 			br = new BufferedReader (new FileReader (PATH));
 			String line = br.readLine();
-			while (line != null) {
+			for (int i = 0; i < quantity; i ++) {
 				String [] array = line.split(";");
 				Persona persona = new Persona (
 						(array[0]),

@@ -19,6 +19,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextPane;
 import javax.swing.UIManager;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Start extends JFrame {
 
@@ -44,11 +46,23 @@ public class Start extends JFrame {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				FirstList firstlist = new FirstList();
-				firstlist.setVisible(true);
+				SelectPeople frame = new SelectPeople();
+				frame.setVisible(true);
 				dispose();
 			}
 		});
+		
+		contentPane.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					SelectPeople frame = new SelectPeople();
+					frame.setVisible(true);
+					dispose();
+				}
+			}
+		});
+		
 		btnNewButton.setFont(new Font("Segoe UI Historic", Font.BOLD, 16));
 		btnNewButton.setBounds(228, 372, 226, 47);
 		contentPane.add(btnNewButton);
@@ -59,11 +73,10 @@ public class Start extends JFrame {
 		ImageIcon icon = new ImageIcon (System.getProperty("user.dir") + "/resourses/people.png");
 		lblNewLabel.setIcon(icon);
 		
-		JTextPane txtpnClusteringHumano = new JTextPane();
-		txtpnClusteringHumano.setBackground(UIManager.getColor("Button.background"));
-		txtpnClusteringHumano.setFont(new Font("Tahoma", Font.BOLD, 24));
-		txtpnClusteringHumano.setText("CLUSTERING HUMANO");
-		txtpnClusteringHumano.setBounds(202, 11, 283, 47);
-		contentPane.add(txtpnClusteringHumano);
+		JLabel lblNewLabel_1 = new JLabel("CLUSTERING HUMANO");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_1.setBounds(142, 11, 409, 47);
+		contentPane.add(lblNewLabel_1);
 	}
 }
