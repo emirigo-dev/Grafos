@@ -179,33 +179,20 @@ public class Grafo {
 	 * */
 	public void eliminarAristaMasPesada() {
 		ArrayList <int []> list = new ArrayList<int []>();
-		int [] t;
+		int [] arista = new int [2];
 		int pesoMaximo = -1;
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
 				if (A[i][j] != null && i!=j && pesoMaximo <= A[i][j]) {
 					if (A[i][j] > pesoMaximo) {
-						list.clear();
-						t = new int [2];
-						t [0] = i;
-						t [1] = j;
-						list.add(t);
+						arista[0] = i;
+						arista[1] = j;
 						pesoMaximo = A[i][j];
-					}
-					else {
-						t = new int [2];
-						t [0] = i;
-						t [1] = j;
-						list.add(t);
 					}
 				}
 			}
 		}
-		
-		Random rnd = new Random();
-		int i = rnd.nextInt(list.size());
-		t = list.get(i);
-		eliminarArista(t [0], t [1]);
+			eliminarArista(arista[0], arista[1]);
 	}
 	
 	/**
