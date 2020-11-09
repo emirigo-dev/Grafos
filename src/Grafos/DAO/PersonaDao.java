@@ -6,9 +6,24 @@ import java.util.Arrays;
 
 import Grafos.Logica.*;
 
+/**
+ * <h1>PersonaDao</h1>
+ * PersonaDao es la clase que obener el registro de todas las personas que serán visualizadas
+ * 
+ * @author Heredia Agustín
+ * @author Rigobello Emiliano
+ * @author Uncos Sergio
+ * @since 2020
+ * */
 
 public class PersonaDao {
 
+	
+	/**
+	 * Este metodo lee los datos para armar objetos de tipo {@code Persona} desde un CSV y lo devuelve en forma de lista.
+	 * 
+	 * @return Devuelve un {@code ArrayList} con los objetos {@code Persona}
+	 */
 	public static ArrayList <Persona> personsFromCsv () {
 		ArrayList <Persona> persons = new ArrayList <Persona>();
 		BufferedReader br = null;

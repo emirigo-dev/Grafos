@@ -54,9 +54,8 @@ public class Groups extends JFrame {
 		int n = random.nextInt(grafo.getVertices());
 		Grafo agm = Prim.generadorArbolMinimo (grafo, n);
 		agm.eliminarAristaMasPesada();
-		//agm.eliminarAristaAleatoria();
 		Persona persona;
-		ArrayList <Set<Integer>> listas = BFS.dividirGrafo(agm);
+		ArrayList <Set<Integer>> listas = Grafo.dividirGrafo(agm);
 		for (Integer i : listas.get(0)) {
 			persona = grafo.getGrupoPersona().get(i);
 			list1.add(list1.getSize(), persona);

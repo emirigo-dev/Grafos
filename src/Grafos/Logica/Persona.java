@@ -1,5 +1,16 @@
 package Grafos.Logica;
 
+/**
+ * <h1>Persona</h1>
+ * Clase que representa a las personas participantes de la aplicación,
+ *las cuales están caracterizadas por un nombre y distintos intereses.
+ *
+ * @author Heredia Agustín
+ * @author Rigobello Emiliano
+ * @author Uncos Sergio
+ * @since 2020
+ * */
+
 public class Persona {
 	private String nombre;
 	private int interesMusica;
@@ -8,35 +19,29 @@ public class Persona {
 	private int interesCiencia;
 
 	public Persona(String nombre, int musica, int matematica, int deporte, int ciencia) {
+		
 		if (nombre.length() < 3) {
 			throw new IllegalArgumentException("Tiene que ingresar un nombre de longitud minima de 3");
 		} else {
 			this.setNombre(nombre);
 		}
-		if (musica < 0 || musica > 5) {
-			throw new IllegalArgumentException("El interes de la musica tiene que estar entre 0 y 5");
-		} else {
+		
+		verificarInteres (musica, 1);
+		verificarInteres (matematica, 2);
+		verificarInteres (deporte, 3);
+		verificarInteres (ciencia, 4);
 
-			this.interesMusica = musica;
-		}
-		if (matematica < 0 || matematica > 5) {
-			throw new IllegalArgumentException("El interes por las matematicas tiene que estar entre 0 y 5");
-		} else {
-			this.interesMatematica = matematica;
-		}
-		if (deporte < 0 || deporte > 5) {
-			throw new IllegalArgumentException("El interes del deporte tiene que estar entre 0 y 5");
-		} else {
-			this.interesDeporte = deporte;
-		}
-		if (ciencia < 0 || ciencia > 5) {
-			throw new IllegalArgumentException("El interes de la ciencia tiene que estar entre 0 y 5");
-		} else {
-			this.interesCiencia = ciencia;
-		}
-
+		this.interesMusica = musica;
+		this.interesMatematica = matematica;
+		this.interesDeporte = deporte;
+		this.interesCiencia = ciencia;
 	}
 
+	/**
+	 * Método que determina la similaridad de interesese entre dos personas.
+	 * @param Objeto {@code Persona} con el cual comparar y determinar similaridad
+	 * @return Valor {@code int} el cual determina la similaridad 
+	 * */
 	public int similaridad(Persona persona) {
 		int musicaSimilaridad = this.interesMusica - persona.interesMusica;
 		int cienciaSimilaridad = this.interesCiencia - persona.interesCiencia;
@@ -46,6 +51,22 @@ public class Persona {
 				+ Math.abs(matematicaSimilaridad);
 	}
 
+	public void verificarInteres (int interes, int pos) {
+		
+		String nombre = "";
+		if (pos == 1)
+			nombre = "musica";
+		else if (pos == 2)
+			nombre = "matemática";
+		else if (pos == 3)
+			nombre = "deporte";
+		else if (pos == 4)
+			nombre = "ciencia";
+		
+ 		if (interes < 0 || interes > 5) 
+			throw new IllegalArgumentException("El interes de " + nombre + " tiene que estar entre 0 y 5");
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}
