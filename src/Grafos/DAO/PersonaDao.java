@@ -2,7 +2,6 @@ package Grafos.DAO;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import Grafos.Logica.*;
 
@@ -25,6 +24,13 @@ public class PersonaDao {
 	 * @return Devuelve un {@code ArrayList<Persona>} con los objetos {@code Persona} 
 	 */
 	public static ArrayList <Persona> personsFromCsv (Integer quantity) {
+		
+		if (quantity < 3)
+			throw new IllegalArgumentException("Quantity debe ser mayor a 2");
+		
+		if (quantity > 150)
+			throw new IllegalArgumentException("Quantity debe ser menor a 150");
+		
 		ArrayList <Persona> persons = new ArrayList <Persona>();
 		BufferedReader br = null;
 		String PATH = System.getProperty("user.dir") + "/resourses/personas.csv";

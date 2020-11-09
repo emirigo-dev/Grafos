@@ -2,7 +2,6 @@ package Grafos.Logica;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 /**
@@ -35,7 +34,7 @@ public class Grafo {
 	 * Dado un objeto {@code Grafo}, los cuales se encuentra seteados los vertices, genera un {@code Grafo} completo.
 	 * */
 	public void grafoCompleto() {
-		if (grupoPersona.size() < 2) {
+		if (grupoPersona.size() < 3) {
 			throw new IllegalArgumentException("Por lo menos tiene que haber 3 personas");
 		}
 		if (grupoPersona.size() > vertices) {
@@ -97,6 +96,11 @@ public class Grafo {
 	 * */
 	public void agregarArista(int persona1, int persona2, int peso) {
 		validarVertices(persona1, persona2);
+		
+		if (peso < 0) {
+			throw new IllegalArgumentException("El peso debe ser igual o mayor a cero");
+		}
+		
 		A[persona1][persona2] = peso;
 		A[persona2][persona1] = peso;
 	}
@@ -201,6 +205,9 @@ public class Grafo {
 	 *  cada conjunto represente la división de un grafo y contiene los vertices correspondientes*/
 	public static ArrayList<Set <Integer>> dividirGrafo (Grafo grafo) {
         ArrayList <Set <Integer>> grafos = new ArrayList <Set <Integer>>();
+        
+        if (grafo.getGrupoPersona().size() != grafo.getVertices())
+        	throw new NullPointerException("El grafo debe contener la misma cantidad de personas que vertices");
         
         if (BFS.esConexo(grafo)){
             grafos.add(BFS.alcanzables(grafo, 0));

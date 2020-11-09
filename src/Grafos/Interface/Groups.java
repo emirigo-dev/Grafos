@@ -55,9 +55,7 @@ public class Groups extends JFrame {
 	public Groups(Grafo grafo) {
 		setTitle("Clustering Human");
 		
-		Random random = new Random();
-		int n = random.nextInt(grafo.getVertices());
-		Grafo agm = Prim.generadorArbolMinimo (grafo, n);
+		Grafo agm = Prim.generadorArbolMinimo (grafo, 0);
 		agm.eliminarAristaMasPesada();
 		Persona persona;
 		ArrayList <Set<Integer>> listas = Grafo.dividirGrafo(agm);
