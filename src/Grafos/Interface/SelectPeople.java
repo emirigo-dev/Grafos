@@ -1,12 +1,10 @@
 package Grafos.Interface;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -22,6 +20,9 @@ import java.awt.Color;
 
 public class SelectPeople extends JFrame {
 
+	/**
+	 * 
+	 */
 	private JPanel contentPane;
 	private JTextField textField;
 	public static Integer count;
@@ -88,7 +89,7 @@ public class SelectPeople extends JFrame {
 						dispose();
 					}					
 				}
-				lblTheNumberShould.setText("The number must be between 3 - 120");
+				lblTheNumberShould.setText("The number must be between 3 - 150");
 				
 			}
 		});
