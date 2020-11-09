@@ -178,7 +178,6 @@ public class Grafo {
 	 * Método que elimina la arista con mayor peso del {@code Grafo}
 	 * */
 	public void eliminarAristaMasPesada() {
-		ArrayList <int []> list = new ArrayList<int []>();
 		int [] arista = new int [2];
 		int pesoMaximo = -1;
 		for (int i = 0; i < grupoPersona.size(); i++) {
