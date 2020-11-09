@@ -2,6 +2,7 @@ package Grafos.Interface;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,6 +19,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JMenuBar;
 import java.awt.Canvas;
 import java.awt.ScrollPane;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JMenuItem;
@@ -29,7 +31,7 @@ import java.awt.event.MouseEvent;
 public class FirstList extends JFrame {
 
 	private JPanel contentPane;
-	private DefaultListModel persons = new DefaultListModel ();
+	private DefaultListModel people = new DefaultListModel ();
 	private ArrayList <Persona> personas;
 	public static Grafo grafo;
 
@@ -53,15 +55,19 @@ public class FirstList extends JFrame {
 	 * Create the frame.
 	 */
 	public FirstList() {
+		setTitle("Clustering Humano");
 		
 		personas = PersonaDao.personsFromCsv();
 		grafo = new Grafo (personas.size());
 		for (Persona persona : personas) {
 			grafo.agregarPersonas(persona);
-			persons.add(persons.getSize(), persona);
+			people.add(people.getSize(), persona);
 		}
 		grafo.grafoCompleto();
 
+		Image icon = Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") + "/resourses/user.png");
+		setIconImage(icon);
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
@@ -78,14 +84,14 @@ public class FirstList extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(238, 388, 209, 42);
+		btnNewButton.setBounds(237, 371, 209, 42);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(37, 23, 638, 312);
 		contentPane.add(scrollPane);
 		
-		JList list_1 = new JList(persons);
+		JList list_1 = new JList(people);
 		scrollPane.setViewportView(list_1);
 	}
 }

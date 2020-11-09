@@ -20,6 +20,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -49,6 +51,7 @@ public class Groups extends JFrame {
 	 * Create the frame.
 	 */
 	public Groups(Grafo grafo) {
+		setTitle("Clustering Humano");
 		
 		Random random = new Random();
 		int n = random.nextInt(grafo.getVertices());
@@ -65,6 +68,8 @@ public class Groups extends JFrame {
 			list2.add(list2.getSize(), persona);
 		}
 		
+		Image icon = Toolkit.getDefaultToolkit().getImage(System.getProperty("user.dir") + "/resourses/user.png");
+		setIconImage(icon);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);
@@ -95,7 +100,7 @@ public class Groups extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton.setBounds(550, 73, 144, 59);
+		btnNewButton.setBounds(550, 190, 144, 59);
 		contentPane.add(btnNewButton);
 	}
 }

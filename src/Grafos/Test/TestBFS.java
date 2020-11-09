@@ -27,7 +27,7 @@ public class TestBFS {
 	}
 
 	@Test
-	public void conextoTest() {
+	public void conexoTest() {
 		Grafo g = setUp();
 		
 		int peso = g.getGrupoPersona().get(3).similaridad(g.getGrupoPersona().get(4));

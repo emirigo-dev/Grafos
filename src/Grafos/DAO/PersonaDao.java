@@ -22,7 +22,7 @@ public class PersonaDao {
 	/**
 	 * Este metodo lee los datos para armar objetos de tipo {@code Persona} desde un CSV y lo devuelve en forma de lista.
 	 * 
-	 * @return Devuelve un {@code ArrayList} con los objetos {@code Persona}
+	 * @return Devuelve un {@code ArrayList<Persona>} con los objetos {@code Persona} 
 	 */
 	public static ArrayList <Persona> personsFromCsv () {
 		ArrayList <Persona> persons = new ArrayList <Persona>();

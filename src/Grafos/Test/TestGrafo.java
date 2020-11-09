@@ -117,8 +117,8 @@ public class TestGrafo {
 		g.grafoCompleto();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
 		agm.eliminarAristaMasPesada();
-		assertTrue(agm.existeArista(0, 1));
-		assertTrue(agm.existeArista(1, 0));
+		assertFalse(agm.existeArista(0, 1));
+		assertFalse(agm.existeArista(1, 0));
 	}
 
 }
