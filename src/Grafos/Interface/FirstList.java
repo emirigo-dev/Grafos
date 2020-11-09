@@ -55,7 +55,7 @@ public class FirstList extends JFrame {
 	 * Create the frame.
 	 */
 	public FirstList(Integer count) {
-		setTitle("Clustering Humano");
+		setTitle("Clustering Human");
 		
 		personas = PersonaDao.personsFromCsv(count);
 		grafo = new Grafo (personas.size());

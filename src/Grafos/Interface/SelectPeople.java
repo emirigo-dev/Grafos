@@ -46,7 +46,7 @@ public class SelectPeople extends JFrame {
 	 * Create the frame.
 	 */
 	public SelectPeople() {
-		setTitle("Clustering Humano");
+		setTitle("Clustering Human");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
@@ -82,13 +82,13 @@ public class SelectPeople extends JFrame {
 					textField.getText().matches("[0-9]{2}") ||
 					textField.getText().matches("[0-9]")){
 					count = Integer.parseInt(textField.getText());
-					if (count > 2 && count <= 120) {
+					if (count > 2 && count <= 150) {
 						FirstList firstlist = new FirstList(count);
 						firstlist.setVisible(true);
 						dispose();
 					}					
 				}
-				lblTheNumberShould.setText("The number must be between 0 - 120");
+				lblTheNumberShould.setText("The number must be between 3 - 120");
 				
 			}
 		});
@@ -102,7 +102,7 @@ public class SelectPeople extends JFrame {
 		lblNewLabel.setBounds(64, 59, 574, 45);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("1 - 120");
+		JLabel lblNewLabel_1 = new JLabel("3 - 150");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 28));
 		lblNewLabel_1.setBounds(243, 131, 204, 38);

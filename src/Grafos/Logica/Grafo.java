@@ -179,20 +179,24 @@ public class Grafo {
 	 * Método que elimina la arista con mayor peso del {@code Grafo}
 	 * */
 	public void eliminarAristaMasPesada() {
-		ArrayList <Tupla <Integer, Integer>> list = new ArrayList<Tupla<Integer, Integer>>();
-		Tupla t;
+		ArrayList <int []> list = new ArrayList<int []>();
+		int [] t;
 		int pesoMaximo = -1;
 		for (int i = 0; i < grupoPersona.size(); i++) {
 			for (int j = 0; j < grupoPersona.size(); j++) {
 				if (A[i][j] != null && i!=j && pesoMaximo <= A[i][j]) {
 					if (A[i][j] > pesoMaximo) {
 						list.clear();
-						t = new Tupla (i,j);
+						t = new int [2];
+						t [0] = i;
+						t [1] = j;
 						list.add(t);
 						pesoMaximo = A[i][j];
 					}
 					else {
-						t = new Tupla (i,j);
+						t = new int [2];
+						t [0] = i;
+						t [1] = j;
 						list.add(t);
 					}
 				}
@@ -202,8 +206,7 @@ public class Grafo {
 		Random rnd = new Random();
 		int i = rnd.nextInt(list.size());
 		t = list.get(i);
-		System.out.println("Más pesada ( " + t.getX() + " -- " + t.getY() + " )");
-		eliminarArista((int)t.getX(), (int)t.getY());
+		eliminarArista(t [0], t [1]);
 	}
 	
 	/**

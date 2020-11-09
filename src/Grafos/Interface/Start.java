@@ -1,8 +1,5 @@
 package Grafos.Interface;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -13,12 +10,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import java.awt.Color;
 import javax.swing.JLabel;
-import javax.swing.JTextPane;
-import javax.swing.UIManager;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
@@ -26,12 +19,15 @@ public class Start extends JFrame {
 
 	private JPanel contentPane;
 	private JLabel lblNewLabel;
+	public static Font font = new Font(
+			"ShinySignature.ttf", 
+			Font.PLAIN, 24);
 
 	/**
 	 * Create the frame.
 	 */
 	public Start() {
-		setTitle("Clustering Humano");
+		setTitle("Clustering Human");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 720, 480);
 		contentPane = new JPanel();
@@ -75,7 +71,8 @@ public class Start extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("CLUSTERING HUMANO");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
+//		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_1.setFont(new Font("Rockwell Condensed", Font.PLAIN, 24));
 		lblNewLabel_1.setBounds(142, 11, 409, 47);
 		contentPane.add(lblNewLabel_1);
 	}

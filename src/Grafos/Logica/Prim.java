@@ -31,10 +31,10 @@ public class Prim {
 		iniciarArbol(g, origen);
 		int i = 0;
 		while (i < g.tamanio()) {
-			Tupla aristaMinima = dameAristaMinima(g);
-			if (aristaMinima.getX() != aristaMinima.getY()) {
-				int x = (int)aristaMinima.getX();
-				int y = (int)aristaMinima.getY();
+			int [] aristaMinima = dameAristaMinima(g);
+			if (aristaMinima[0] != aristaMinima[1]) {
+				int x = aristaMinima[0];
+				int y = aristaMinima[1];
 				int peso = g.getA()[x][y];
 				System.out.println("( " + x + " - " + y + " ) ----------- " + peso);
 				agm.agregarArista(x, y, peso);
@@ -64,16 +64,16 @@ public class Prim {
 	 * @param g es un {@code Grafo} en el cual se buscará la arista menos pesada
 	 * @return Devuelve un objeto {@code Tupla} con la arista más liviana
 	 * */
-	public static Tupla dameAristaMinima(Grafo g) {
-		Tupla arista = new Tupla();
+	public static int [] dameAristaMinima(Grafo g) {
+		int [] arista = new int [2];
 		int peso = -1;
 		for (int i = 0; i < vertices.size(); i++) {
 			for (int j = 0; j < g.tamanio(); j++) {
 				if (vertices.get(i) != j && g.existeArista(vertices.get(i), j) && !vertices.contains(j)) {
 					if (g.dameSimilaridad(vertices.get(i), j) < peso || peso == -1) {
 						peso = g.dameSimilaridad(vertices.get(i), j);
-						arista.setX(vertices.get(i));
-						arista.setY(j);
+						arista [0] = vertices.get(i);
+						arista [1] = j;
 					}
 				}
 			}

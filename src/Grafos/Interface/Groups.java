@@ -24,6 +24,8 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class Groups extends JFrame {
 
@@ -51,7 +53,7 @@ public class Groups extends JFrame {
 	 * Create the frame.
 	 */
 	public Groups(Grafo grafo) {
-		setTitle("Clustering Humano");
+		setTitle("Clustering Human");
 		
 		Random random = new Random();
 		int n = random.nextInt(grafo.getVertices());
@@ -102,5 +104,21 @@ public class Groups extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton.setBounds(550, 190, 144, 59);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setFont(new Font("Rockwell Condensed", Font.PLAIN, 22));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(548, 61, 132, 34);
+		lblNewLabel.setText(listas.get(0).size() + " persons");
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setFont(new Font("Rockwell Condensed", Font.PLAIN, 22));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(550, 315, 132, 34);
+		lblNewLabel_1.setText(listas.get(1).size() + " persons");
+		contentPane.add(lblNewLabel_1);
+		
+		
 	}
 }
