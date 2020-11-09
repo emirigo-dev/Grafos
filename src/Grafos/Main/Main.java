@@ -1,7 +1,6 @@
 package Grafos.Main;
 
 import java.awt.EventQueue;
-import java.io.File;
 
 import Grafos.Interface.Start;
 

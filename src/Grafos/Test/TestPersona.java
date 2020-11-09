@@ -2,7 +2,6 @@ package Grafos.Test;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
 import org.junit.Test;
 
 import Grafos.Logica.Persona;
@@ -32,7 +31,7 @@ public class TestPersona {
 
 	@Test(expected = IllegalArgumentException.class)
 	public void personaValoresNegativos() {
-		Persona persona = new Persona("Roberto", 0, -1, -3, 2);
+		new Persona("Roberto", 0, -1, -3, 2);
 	}
 
 	@Test

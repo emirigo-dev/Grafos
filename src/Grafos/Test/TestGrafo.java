@@ -2,7 +2,6 @@ package Grafos.Test;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import Grafos.Logica.Grafo;
@@ -46,13 +45,13 @@ public class TestGrafo {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void IndiceSimilaridadVerticesInvalidosTest() {
+	public void indiceSimilaridadVerticesInvalidosTest() {
 		Grafo g = setUp();
 		assertEquals(2, g.dameSimilaridad(-1, 5));
 	}
 
 	@Test
-	public void IndiceSimilaridadValidaTest() {
+	public void indiceSimilaridadValidaTest() {
 		Grafo g = setUp();
 		assertEquals(8, g.dameSimilaridad(1, 2));
 	}
@@ -120,5 +119,16 @@ public class TestGrafo {
 		assertFalse(agm.existeArista(0, 1));
 		assertFalse(agm.existeArista(1, 0));
 	}
-
+	
+	@Test
+	public void pesoAristaTest() {
+		Grafo g = setUp();
+		assertEquals(8, g.pesoArista(1, 2));
+	}
+	
+	@Test
+	public void cantidadDeVecinoisTest() {
+		Grafo g = setUp();
+		assertEquals(2, g.cantidadDeVecinos(1));
+		}
 }

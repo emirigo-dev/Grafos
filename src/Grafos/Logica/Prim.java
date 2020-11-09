@@ -1,10 +1,7 @@
 package Grafos.Logica;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 /**
  * <h1>Prim</h1>
@@ -36,7 +33,6 @@ public class Prim {
 				int x = aristaMinima[0];
 				int y = aristaMinima[1];
 				int peso = g.getA()[x][y];
-				System.out.println("( " + x + " - " + y + " ) ----------- " + peso);
 				agm.agregarArista(x, y, peso);
 				vertices.add(y);
 			}

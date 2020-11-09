@@ -2,9 +2,6 @@ package Grafos.Test;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
-import org.junit.After;
 import org.junit.Test;
 
 import Grafos.Logica.BFS;
