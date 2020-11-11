@@ -31,11 +31,6 @@ public class TestPrim {
 	public void eligeCaminoMinimoOrigenInicioTest() {	
 		Grafo g = setUp();
 		Grafo agm = Prim.generadorArbolMinimo(g, 0);
-//		System.out.println(Prim.imprimirvertices());
-//		System.out.println(" ");
-//		for (int i = 0; i < agm.cantidadVertices(); i++) {
-//			System.out.println(Arrays.toString(agm.getA()[i]));
-//		}
 		assertEquals(14, agm.damePesoTotal());
 	}
 	
