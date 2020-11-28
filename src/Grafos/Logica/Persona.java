@@ -14,11 +14,11 @@ package Grafos.Logica;
 public class Persona {
 	private String nombre;
 	private int interesMusica;
-	private int interesMatematica;
+	private int interesEspectaculo;
 	private int interesDeporte;
 	private int interesCiencia;
 
-	public Persona(String nombre, int musica, int matematica, int deporte, int ciencia) {
+	public Persona(String nombre, int musica, int Espectaculo, int deporte, int ciencia) {
 		
 		if (nombre.length() < 3) {
 			throw new IllegalArgumentException("Tiene que ingresar un nombre de longitud minima de 3");
@@ -27,12 +27,12 @@ public class Persona {
 		}
 		
 		verificarInteres (musica, 1);
-		verificarInteres (matematica, 2);
+		verificarInteres (Espectaculo, 2);
 		verificarInteres (deporte, 3);
 		verificarInteres (ciencia, 4);
 
 		this.interesMusica = musica;
-		this.interesMatematica = matematica;
+		this.interesEspectaculo = Espectaculo;
 		this.interesDeporte = deporte;
 		this.interesCiencia = ciencia;
 	}
@@ -45,7 +45,7 @@ public class Persona {
 	public int similaridad(Persona persona) {
 		int musicaSimilaridad = this.interesMusica - persona.interesMusica;
 		int cienciaSimilaridad = this.interesCiencia - persona.interesCiencia;
-		int matematicaSimilaridad = this.interesMatematica - persona.interesMatematica;
+		int matematicaSimilaridad = this.interesEspectaculo - persona.interesEspectaculo;
 		int deporteSimilaridad = this.interesDeporte - persona.interesDeporte;
 		return Math.abs(deporteSimilaridad) + Math.abs(musicaSimilaridad) + Math.abs(cienciaSimilaridad)
 				+ Math.abs(matematicaSimilaridad);
@@ -77,7 +77,7 @@ public class Persona {
 
 	@Override
 	public String toString () {
-		return nombre + "       Musica: " + interesMusica + "  Matemática: " + interesMatematica + "  Deporte: " + 
+		return nombre + "       Musica: " + interesMusica + "  Espectaculo: " + interesEspectaculo + "  Deporte: " + 
 				interesDeporte + "  Ciencia: " + interesCiencia;
 	}
 	
